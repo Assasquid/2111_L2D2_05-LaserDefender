@@ -356,7 +356,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9d1224e0d9bc69e4b8d02199c888a7ac, type: 2}
   - {fileID: 11400000, guid: 16c589698d77e97448bb11486063c67a, type: 2}
   timeBetweenWaves: 1
-  isLooping: 0
+  isLooping: 1
 --- !u!4 &1638462491
 Transform:
   m_ObjectHideFlags: 0
@@ -379,6 +379,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6817277738082220918, guid: b654d84c4d14c564785d8f7f494f260f, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6817277738082220918, guid: b654d84c4d14c564785d8f7f494f260f, type: 3}
+      propertyPath: firingRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6817277738082220918, guid: b654d84c4d14c564785d8f7f494f260f, type: 3}
+      propertyPath: projectileLifetime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8006909216476980724, guid: b654d84c4d14c564785d8f7f494f260f, type: 3}
       propertyPath: m_RootOrder
       value: 1

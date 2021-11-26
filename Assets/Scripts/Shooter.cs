@@ -5,9 +5,10 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     [SerializeField] GameObject projectilePrefab;
-    [SerializeField] float speed = 15f;
+    [SerializeField] float speed = 10f;
+    //[SerializeField] float speed = 3000f;
     [SerializeField] float projectileLifetime = 5f;
-    [SerializeField] float firingRate = 0.2f;
+    [SerializeField] float firingRate = 0.1f;
 
     public bool isFiring;
     Coroutine firingCoroutine;
@@ -46,7 +47,8 @@ public class Shooter : MonoBehaviour
             Rigidbody2D rb = instance.GetComponent<Rigidbody2D>();
             if(rb != null)
             {
-                rb.velocity = transform.up * speed * Time.deltaTime;
+                //rb.velocity = transform.up * speed * Time.deltaTime;
+                rb.velocity = transform.up * speed;
             }
 
             Destroy(instance, projectileLifetime);
