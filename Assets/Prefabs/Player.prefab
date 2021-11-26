@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1091907374356511021}
   - component: {fileID: 5766207117051544886}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blue Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 311eb968ed11b6943b0d7a9dd6919aa3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: -27615719775499615}
   - component: {fileID: 7469990930449011207}
   - component: {fileID: -929189897447868983}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
