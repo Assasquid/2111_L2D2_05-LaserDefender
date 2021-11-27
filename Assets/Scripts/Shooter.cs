@@ -11,6 +11,7 @@ public class Shooter : MonoBehaviour
     [SerializeField] float firingRate = 0.2f;
     [SerializeField] bool useAI;
     [SerializeField] float aIFiringRateVariance = 0.3f;
+    [SerializeField] float aIMinimumFiringRate = 0.2f;
 
 
     public bool isFiring;
@@ -61,8 +62,12 @@ public class Shooter : MonoBehaviour
             
             if(useAI)
             {
-               float enemyFiringRate = Random.Range(firingRate - aIFiringRateVariance,
-                                        firingRate + aIFiringRateVariance);
+                float randomFiringRate = Random.Range(firingRate - aIFiringRateVariance,
+                                                        firingRate + aIFiringRateVariance);
+                float enemyFiringRate = Mathf.Clamp(randomFiringRate, 
+                                                    aIMinimumFiringRate,
+                                                    float.MaxValue);
+
                 yield return new WaitForSeconds(enemyFiringRate);
             }
             else
