@@ -8,14 +8,20 @@ public class Shooter : MonoBehaviour
     [SerializeField] float speed = 10f;
     //[SerializeField] float speed = 3000f;
     [SerializeField] float projectileLifetime = 5f;
-    [SerializeField] float firingRate = 0.1f;
+    [SerializeField] float firingRate = 0.2f;
+    [SerializeField] bool useAI;
+    [SerializeField] float aIFiringRateVariance = 0.3f;
+
 
     public bool isFiring;
     Coroutine firingCoroutine;
 
     void Start()
     {
-
+        if(useAI)
+        {
+            isFiring = true;
+        }
     }
 
     void Update()
@@ -47,12 +53,22 @@ public class Shooter : MonoBehaviour
             Rigidbody2D rb = instance.GetComponent<Rigidbody2D>();
             if(rb != null)
             {
-                //rb.velocity = transform.up * speed * Time.deltaTime;
                 rb.velocity = transform.up * speed;
+                //rb.velocity = transform.up * speed * Time.deltaTime;
             }
 
             Destroy(instance, projectileLifetime);
-            yield return new WaitForSeconds(firingRate);
+            
+            if(useAI)
+            {
+               float enemyFiringRate = Random.Range(firingRate - aIFiringRateVariance,
+                                        firingRate + aIFiringRateVariance);
+                yield return new WaitForSeconds(enemyFiringRate);
+            }
+            else
+            {
+               yield return new WaitForSeconds(firingRate); 
+            }
         }
     }
 }
