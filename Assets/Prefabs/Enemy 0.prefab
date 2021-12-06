@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: -1845366295926166551}
   m_Layer: 7
   m_Name: Enemy 0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   hitEffect: {fileID: 6197509861468572431, guid: a4539e18337cf844daea6cd8736e7f7c, type: 3}
+  applyCameraShake: 0
 --- !u!114 &-7348727710059779736
 MonoBehaviour:
   m_ObjectHideFlags: 0

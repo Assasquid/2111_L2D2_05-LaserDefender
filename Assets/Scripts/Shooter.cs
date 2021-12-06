@@ -18,6 +18,12 @@ public class Shooter : MonoBehaviour
 
     [HideInInspector] public bool isFiring;
     Coroutine firingCoroutine;
+    AudioPlayer audioPlayer;
+
+    void Awake()
+    {
+        audioPlayer = FindObjectOfType<AudioPlayer>();
+    }
 
     void Start()
     {
@@ -67,6 +73,8 @@ public class Shooter : MonoBehaviour
             randomFiringRate = Mathf.Clamp(randomFiringRate, 
                                             aIMinimumFiringRate,
                                             float.MaxValue);
+
+            audioPlayer.PlayShootingClip();
 
             yield return new WaitForSeconds(randomFiringRate);
         }
