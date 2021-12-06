@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
-    [SerializeField] int currentScore = 0;
+    [SerializeField] int score = 0;
 
-    public int GetCurrentScore()
+    public int GetScore()
     {
-        return currentScore;
+        return score;
     }
 
-    public void AddToScore(int points)
+    public void AddToScore(int value)
     {
-        currentScore += points;
+        score += value;
+        Mathf.Clamp(score, 0, int.MaxValue);
     }
 
     public void ResetScore()
     {
-        currentScore = 0;
+        score = 0;
     }
 }

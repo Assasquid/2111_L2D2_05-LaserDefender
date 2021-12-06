@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] bool isPlayer;
     [SerializeField] int health = 50;
     [SerializeField] int scoreValue = 100;
     [SerializeField] ParticleSystem hitEffect;
@@ -11,11 +12,6 @@ public class Health : MonoBehaviour
     CameraShake cameraShake;
     AudioPlayer audioPlayer;
     ScoreKeeper scoreKeeper;
-
-    public int GetHealth()
-    {
-        return health;
-    }
 
     void Awake()
     {
@@ -38,18 +34,28 @@ public class Health : MonoBehaviour
         }
     }
 
+        public int GetHealth()
+        {
+            return health;
+        }
+
     void TakeDamage(int damage)
     {
         health -= damage;
 
         if(health <= 0)
         {
-            Destroy(gameObject);
-            if(gameObject.tag == "Enemy")
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        if(!isPlayer)
             {
                 scoreKeeper.AddToScore(scoreValue);
             }
-        }
+        Destroy(gameObject);
     }
 
     void PlayHitEffect()
