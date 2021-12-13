@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class ScoreKeeper : MonoBehaviour
 {
     [SerializeField] int score = 0;
-    [SerializeField] TMP_Text scoreText;
 
     public int GetScore()
     {
