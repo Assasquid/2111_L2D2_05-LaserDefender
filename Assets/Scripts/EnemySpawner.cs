@@ -11,27 +11,19 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SpawnRandomWave());
+        StartCoroutine(SpawnEnemyWaves());
     }
 
     public WaveConfigSO GetCurrentWave()
     {
         return currentWave;
     }
-
-    IEnumerator SpawnRandomWave()
-    {
-        currentWave = waveConfigs[Random.Range(0, waveConfigs.Count)];
-        yield return StartCoroutine(SpawnEnemyWaves());
-    }
     
     IEnumerator SpawnEnemyWaves()
     {
         do 
         {
-            foreach(WaveConfigSO wave in waveConfigs)
-            {
-                currentWave = wave;
+            currentWave = waveConfigs[Random.Range(0, waveConfigs.Count)];
 
                 for(int i = 0; i < currentWave.GetEnemyCount(); i++)
                 {
@@ -45,7 +37,6 @@ public class EnemySpawner : MonoBehaviour
 
                 yield return new WaitForSeconds(timeBetweenWaves);
             }
-        }
         while (isLooping);
     }
 }
