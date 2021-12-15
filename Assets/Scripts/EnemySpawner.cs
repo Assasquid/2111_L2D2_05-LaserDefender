@@ -6,8 +6,11 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] List<WaveConfigSO> waveConfigs;
     [SerializeField] float timeBetweenWaves = 0f;
+    [SerializeField] float spawnTimeVariance = 0f;
+    [SerializeField] float minimumSpawnTime = 0f;
     [SerializeField] bool isLooping;
     WaveConfigSO currentWave;
+    float randomTimeBetweenWaves;
 
     void Start()
     {
@@ -34,9 +37,16 @@ public class EnemySpawner : MonoBehaviour
                 
                     yield return new WaitForSeconds(currentWave.GetRandomSpawnTime());
                 }
-
-                yield return new WaitForSeconds(timeBetweenWaves);
+                RandomTimeBetweenWaves();
+                yield return new WaitForSeconds(randomTimeBetweenWaves);
             }
         while (isLooping);
+    }
+
+    void RandomTimeBetweenWaves()
+    {
+        randomTimeBetweenWaves = Random.Range(timeBetweenWaves - spawnTimeVariance,
+                                        timeBetweenWaves + spawnTimeVariance);
+        Mathf.Clamp(randomTimeBetweenWaves, minimumSpawnTime, float.MaxValue);
     }
 }

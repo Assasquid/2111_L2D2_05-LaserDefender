@@ -584,7 +584,11 @@ MonoBehaviour:
   waveConfigs:
   - {fileID: 11400000, guid: 9d1224e0d9bc69e4b8d02199c888a7ac, type: 2}
   - {fileID: 11400000, guid: 16c589698d77e97448bb11486063c67a, type: 2}
-  timeBetweenWaves: 1
+  - {fileID: 11400000, guid: 5e7445445a9bf194386f95eea51f3920, type: 2}
+  - {fileID: 11400000, guid: 9ad640be31064cb4dbaab2e412d33d72, type: 2}
+  timeBetweenWaves: 1.4
+  spawnTimeVariance: 0.8
+  minimumSpawnTime: 1
   isLooping: 1
 --- !u!4 &1638462491
 Transform:
