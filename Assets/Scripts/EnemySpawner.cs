@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SpawnEnemyWaves());
+        StartCoroutine(SpawnRandomWave());
     }
 
     public WaveConfigSO GetCurrentWave()
@@ -19,6 +19,12 @@ public class EnemySpawner : MonoBehaviour
         return currentWave;
     }
 
+    IEnumerator SpawnRandomWave()
+    {
+        currentWave = waveConfigs[Random.Range(0, waveConfigs.Count)];
+        yield return StartCoroutine(SpawnEnemyWaves());
+    }
+    
     IEnumerator SpawnEnemyWaves()
     {
         do 
